@@ -1,15 +1,16 @@
-import smtplib
 import os
-# pyrefly: ignore [missing-import]
-from dotenv import load_dotenv
+import smtplib
 from email.message import EmailMessage
 
+from dotenv import load_dotenv
+
 load_dotenv()
+
 
 class NotificadorEmail:
     def __init__(self):
         self.host = os.getenv("EMAIL_HOST")
-        self.port = int(os.getenv("EMAIL_PORT", 587))
+        self.port = int(os.getenv("EMAIL_PORT"))
         self.user = os.getenv("EMAIL_USER")
         self.password = os.getenv("EMAIL_PASS")
 
