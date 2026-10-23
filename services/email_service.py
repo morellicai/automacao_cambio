@@ -44,13 +44,26 @@ class NotificadorEmail:
                     )
                 else:
                     print(f"Aviso: O anexo {caminho} não foi encontrado.")
+        if copias:
+            if isinstance(copias, list):
+                msg["Cc"] = ", ".join(copias)
+            else:
+                msg["Cc"] = copias
 
-        # Envio seguro usando TLS
+        # Envio seguro usando TLS / SSL
         try:
-            with smtplib.SMTP(self.host, self.port) as server:
-                server.starttls()  # Criptografa a conexão
+            if self.port == 465:
+                server_ctx = smtplib.SMTP_SSL(self.host, self.port)
+            else:
+                server_ctx = smtplib.SMTP(self.host, self.port)
+
+            with server_ctx as server:
+                if self.port != 465:
+                    server.starttls()  # Criptografa a conexão
                 server.login(self.user, self.password)
                 server.send_message(msg)
             print(f"E-mail enviado com sucesso para {destinatarios}!")
+            return True
         except Exception as e:
             print(f"Falha ao enviar e-mail: {e}")
+            return False
