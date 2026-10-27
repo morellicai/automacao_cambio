@@ -101,49 +101,76 @@ if hour >= 15:
         )
     else:
         email.enviar(
-            destinatarios=["ti01@inconelinox.com.br"],
+            destinatarios=["ti01@inconelinox.com.br", "caiomorelli.it@gmail.com"],
             assunto="Automação: Atualizacao de Cambio - Concluido com Sucesso",
-            corpo_html=f"""
+            corpo_html=f"""                
                 <!DOCTYPE html>
-                <html>
-                <head>
-                    <meta charset="UTF-8">
-                </head>
-                <body style="font-family: Arial, sans-serif; background-color: #f4f7f6; padding: 20px; color: #333333; margin: 0;">
-                    <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-top: 4px solid #0052cc;">
-                        
-                        <h2 style="color: #0052cc; margin-top: 0; font-size: 22px;">Atualização de Câmbio</h2>
-                        
-                        <p style="font-size: 16px; line-height: 1.6; color: #555555;">
-                            A atualização das taxas de câmbio foi finalizada com <strong style="color: #2e7d32;">sucesso</strong>. Confira os valores atualizados abaixo:
-                        </p>
-                        
-                        <table style="width: 100%; border-collapse: collapse; margin-top: 25px; margin-bottom: 25px;">
+                    <html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <meta name="color-scheme" content="light dark">
+                        <meta name="supported-color-schemes" content="light dark">
+                        <!--[if mso]>
+                        <noscript>
+                            <xml>
+                                <o:OfficeDocumentSettings>
+                                    <o:PixelsPerInch>96</o:PixelsPerInch>
+                                </o:OfficeDocumentSettings>
+                            </xml>
+                        </noscript>
+                        <![endif]-->
+                        <style>
+                            :root {{
+                                color-scheme: light dark;
+                                supported-color-schemes: light dark;
+                            }}
+                        </style>
+                    </head>
+                    <body style="font-family: Arial, sans-serif; margin: 0; padding: 0; word-spacing:normal; background-color: #f4f7f6;">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f4f7f6; padding: 20px;">
                             <tr>
-                                <td style="padding: 12px 15px; border-bottom: 1px solid #eeeeee; font-weight: bold; background-color: #f9f9f9; width: 60%;">
-                                    🇺🇸 Taxa Dólar (USD)
-                                </td>
-                                <td style="padding: 12px 15px; border-bottom: 1px solid #eeeeee; text-align: right; font-weight: bold; color: #0052cc; font-size: 16px;">
-                                    R$ {dados[0][1]:.4f}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 12px 15px; border-bottom: 1px solid #eeeeee; font-weight: bold; background-color: #f9f9f9;">
-                                    🇪🇺 Taxa Euro (EUR)
-                                </td>
-                                <td style="padding: 12px 15px; border-bottom: 1px solid #eeeeee; text-align: right; font-weight: bold; color: #0052cc; font-size: 16px;">
-                                    R$ {dados[1][1]:.4f}
+                                <td align="center">
+                                    <!-- Tabela principal atuando como o container branco -->
+                                    <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff; border-radius: 8px; border-top: 4px solid #0052cc; max-width: 600px;">
+                                        <tr>
+                                            <td style="padding: 30px;">
+                                                
+                                                <h2 style="color: #0052cc; margin-top: 0; font-size: 22px;">Atualização de Câmbio</h2>
+                                                
+                                                <p style="font-size: 16px; line-height: 1.6; color: #333333;">
+                                                    A atualização das taxas de câmbio foi finalizada com <strong style="color: #2e7d32;">sucesso</strong>. Confira os valores atualizados abaixo:
+                                                </p>
+                                                
+                                                <!-- Tabela de dados -->
+                                                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 25px; margin-bottom: 25px;">
+                                                    <tr>
+                                                        <td style="padding: 12px 15px; border-bottom: 1px solid #eeeeee; font-weight: bold; width: 60%; color: #333333;">
+                                                            Taxa Dólar (USD)
+                                                        </td>
+                                                        <td align="right" style="padding: 12px 15px; border-bottom: 1px solid #eeeeee; font-weight: bold; color: #0052cc; font-size: 16px;">
+                                                            R$ {dados[0][1]:.2f}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding: 12px 15px; border-bottom: 1px solid #eeeeee; font-weight: bold; color: #333333;">
+                                                            Taxa Euro (EUR)
+                                                        </td>
+                                                        <td align="right" style="padding: 12px 15px; border-bottom: 1px solid #eeeeee; font-weight: bold; color: #0052cc; font-size: 16px;">
+                                                            R$ {dados[1][1]:.2f}
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                
+                                                <hr style="border: none; border-top: 1px solid #eeeeee; margin: 30px 0;">
+                                                
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </td>
                             </tr>
                         </table>
-                        
-                        <hr style="border: none; border-top: 1px solid #eeeeee; margin: 30px 0;">
-                        
-                        <p style="font-size: 12px; color: #999999; text-align: center; margin: 0;">
-                            Mensagem gerada automaticamente pelo sistema.<br>Por favor, não responda a este e-mail.
-                        </p>
-                    </div>
-                </body>
-                </html>
-                """,
+                    </body>
+                    </html>
+                    """,
         )

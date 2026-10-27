@@ -47,6 +47,9 @@ class LoginLogoutSap:
 
 
 class AtualizaTaxa:
+    def __init__(self):
+        self.SAP_URL = os.getenv("SAP_URL")
+
     def atualizar_taxa_sap(self, cookies, moeda, taxa):
         """Atualiza a taxa de câmbio no SAP B1 Service Layer."""
         hoje_sap = datetime.now().strftime("%Y-%m-%d")
