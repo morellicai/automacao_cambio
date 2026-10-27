@@ -68,16 +68,15 @@ Crie um arquivo chamado .env na raiz do projeto (com base no .env.example) e ins
 
 ```bash
 # Exemplo de configuração no arquivo .env
-SAP_URL=https://sua-service-layer:50000/b1s/v1/
-SAP_USER=seu_usuario
-SAP_PASSWORD=sua_senha
-SAP_COMPANY_DB=sua_base_dados
+EMAIL_HOST=smtp.example.com.br
+EMAIL_PORT=465
+EMAIL_USER=email@example.com.br
+EMAIL_PASS=example_password
 
-SMTP_SERVER=smtp.seuservidor.com
-SMTP_PORT=587
-SMTP_USER=seu_email@dominio.com
-SMTP_PASSWORD=sua_senha_email
-EMAIL_TO=destino@dominio.com
+SAP_URL  = "https://localhost/b1s/v1"
+SAP_DB   = "SAP_DATABASE"
+SAP_USER = "user_id"
+SAP_PASS = "Senha"
 ```
 
 - Executar a automação:
