@@ -146,7 +146,7 @@ if hour >= 15:
                                                 <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 25px; margin-bottom: 25px;">
                                                     <tr>
                                                         <td style="padding: 12px 15px; border-bottom: 1px solid #eeeeee; font-weight: bold; width: 60%; color: #333333;">
-                                                            Taxa Dólar (USD)
+                                                           🇺🇸 Taxa Dólar (USD)
                                                         </td>
                                                         <td align="right" style="padding: 12px 15px; border-bottom: 1px solid #eeeeee; font-weight: bold; color: #0052cc; font-size: 16px;">
                                                             R$ {dados[0][1]:.2f}
@@ -154,7 +154,7 @@ if hour >= 15:
                                                     </tr>
                                                     <tr>
                                                         <td style="padding: 12px 15px; border-bottom: 1px solid #eeeeee; font-weight: bold; color: #333333;">
-                                                            Taxa Euro (EUR)
+                                                            🇪🇺 Taxa Euro (EUR)
                                                         </td>
                                                         <td align="right" style="padding: 12px 15px; border-bottom: 1px solid #eeeeee; font-weight: bold; color: #0052cc; font-size: 16px;">
                                                             R$ {dados[1][1]:.2f}
