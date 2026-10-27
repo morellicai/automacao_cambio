@@ -12,8 +12,7 @@
   - quote-style: single
   - line-lenght = 79
   
-- **Estrutura de Pastas**: Onde criar arquivos e qual o fluxo de dados (ex.: Controller -> Service -> Repository).
-- **Boas Práticas**: Regras internas obrigatorias (ex.: tratamento de exceções, tipagem rigorosa, validações).
+- **Estrutura de Pastas**: Neste projeto temos apenas a pasta `services`. Todo módulo adicional, é adicionado lá.
 
 ## 3. Comandos & Ferramentas
 
@@ -31,4 +30,4 @@
 ## 5. Formato das Respostas & Entregas
 
 - **Escopo**: Exigir alterações focadas apenas no problema pontuado, evitando reescrever arquivos inteiros desnecessariamente.
-- **Commits / PRs**: Formato exigido para mensagens de commit (ex.: Conventional Commits).
+- **Commits / PRs**: Conventional Commits.

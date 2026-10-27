@@ -65,6 +65,6 @@ class NotificadorEmail:
                 server.send_message(msg)
             print(f"E-mail enviado com sucesso para {destinatarios}!")
             return True
-        except Exception as e:
+        except (smtplib.SMTPException, OSError) as e:
             print(f"Falha ao enviar e-mail: {e}")
             return False
