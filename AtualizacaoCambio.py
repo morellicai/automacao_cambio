@@ -1,5 +1,5 @@
 import os
-from datetime import date, datetime, time, timedelta
+from datetime import datetime, time
 
 import requests
 import urllib3
@@ -20,17 +20,6 @@ SAP_PASS = os.getenv("SAP_PASS")
 MOEDAS = ["USD", "EUR"]
 
 urllib3.disable_warnings()
-
-
-def data_util_mais_recente():
-    """Retorna a data útil mais recente (pula fim de semana)."""
-    hoje = date.today()
-    if hoje.weekday() == 5:  # sábado → sexta
-        return hoje - timedelta(days=1)
-    elif hoje.weekday() == 6:  # domingo → sexta
-        return hoje - timedelta(days=2)
-    return hoje
-
 
 # ── Execucao principal ──────────────────────────────────────
 
@@ -115,8 +104,46 @@ if hour >= 15:
             destinatarios=["ti01@inconelinox.com.br"],
             assunto="Automação: Atualizacao de Cambio - Concluido com Sucesso",
             corpo_html=f"""
-                <p>Atualizacao de cambio finalizada com sucesso.</p>
-                <p>Taxa Dolar Atualizada: {dados[0]}</p>
-                <p>Taxa Euro Atualizada: {dados[1]}</p>
-            """,
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                </head>
+                <body style="font-family: Arial, sans-serif; background-color: #f4f7f6; padding: 20px; color: #333333; margin: 0;">
+                    <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-top: 4px solid #0052cc;">
+                        
+                        <h2 style="color: #0052cc; margin-top: 0; font-size: 22px;">Atualização de Câmbio</h2>
+                        
+                        <p style="font-size: 16px; line-height: 1.6; color: #555555;">
+                            A atualização das taxas de câmbio foi finalizada com <strong style="color: #2e7d32;">sucesso</strong>. Confira os valores atualizados abaixo:
+                        </p>
+                        
+                        <table style="width: 100%; border-collapse: collapse; margin-top: 25px; margin-bottom: 25px;">
+                            <tr>
+                                <td style="padding: 12px 15px; border-bottom: 1px solid #eeeeee; font-weight: bold; background-color: #f9f9f9; width: 60%;">
+                                    🇺🇸 Taxa Dólar (USD)
+                                </td>
+                                <td style="padding: 12px 15px; border-bottom: 1px solid #eeeeee; text-align: right; font-weight: bold; color: #0052cc; font-size: 16px;">
+                                    R$ {dados[0][1]:.4f}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px 15px; border-bottom: 1px solid #eeeeee; font-weight: bold; background-color: #f9f9f9;">
+                                    🇪🇺 Taxa Euro (EUR)
+                                </td>
+                                <td style="padding: 12px 15px; border-bottom: 1px solid #eeeeee; text-align: right; font-weight: bold; color: #0052cc; font-size: 16px;">
+                                    R$ {dados[1][1]:.4f}
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <hr style="border: none; border-top: 1px solid #eeeeee; margin: 30px 0;">
+                        
+                        <p style="font-size: 12px; color: #999999; text-align: center; margin: 0;">
+                            Mensagem gerada automaticamente pelo sistema.<br>Por favor, não responda a este e-mail.
+                        </p>
+                    </div>
+                </body>
+                </html>
+                """,
         )

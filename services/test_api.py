@@ -1,5 +1,6 @@
 import requests
 
+
 def api_esta_online():
     url_teste = "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/"
     try:
@@ -9,6 +10,7 @@ def api_esta_online():
         return resposta.status_code == 200
     except requests.exceptions.RequestException:
         return False
+
 
 if api_esta_online():
     print("API online! Iniciando extração do câmbio...")

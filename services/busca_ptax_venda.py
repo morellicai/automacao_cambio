@@ -1,11 +1,20 @@
-import requests
+from datetime import date, timedelta
 
-from AtualizacaoCambio import data_util_mais_recente
+import requests
 
 
 class BuscaPtaxVenda:
     def __init__(self):
-        self.data_util_mais_recente = data_util_mais_recente
+        self.data_util_mais_recente = self.data_util_mais_recente
+
+    def data_util_mais_recente(self):
+        """Retorna a data útil mais recente (pula fim de semana)."""
+        hoje = date.today()
+        if hoje.weekday() == 5:  # sábado → sexta
+            return hoje - timedelta(days=1)
+        elif hoje.weekday() == 6:  # domingo → sexta
+            return hoje - timedelta(days=2)
+        return hoje
 
     def buscar_ptax_venda(self, moeda):
         """Busca a cotação de VENDA (PTAX fechamento) do Banco Central."""
