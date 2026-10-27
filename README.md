@@ -2,13 +2,13 @@
 
 Este projeto consiste em uma automação desenvolvida em Python para consultar diariamente a taxa de câmbio PTAX de venda no Banco Central e atualizar automaticamente os registros de cotação no SAP Business One (B1) através da Service Layer (API REST). Ao concluir o processamento, o sistema valida os fluxos e envia uma notificação por e-mail aos responsáveis.
 
-# 🚀 Fluxo de Execução
+## 🚀 Fluxo de Execução
 
 1. Consulta da Taxa PTAX: O script conecta-se à API oficial do Banco Central do Brasil para obter a cotação atualizada da PTAX de venda.
 2. Atualização via Service Layer (SAP B1): O robô efetua a autenticação na Service Layer do SAP Business One e realiza a requisição para gravação das taxas de câmbio atualizadas.
 3. Validação e Notificação: Ao longo do fluxo de execução, o script realiza validações da conexão com os serviços (SAP B1 e servidor de e-mail) e dispara uma notificação consolidando o status da operação.
 
-# 📂 Estrutura do Projeto
+## 📂 Estrutura do Projeto
 
 Abaixo está a organização dos módulos e arquivos que compõem a solução:
 
@@ -86,7 +86,7 @@ EMAIL_TO=destino@dominio.com
 python AtualizacaoCambio.py
 ```
 
-# 🔍 Validações de Conexão e Execução
+## 🔍 Validações de Conexão e Execução
 
 Os arquivos de teste contidos no diretório services/ (login_logout_sap_test.py e test_api.py) não são testes unitários isolados. Trata-se de scripts de verificação utilizados para testar a comunicação direta com a Service Layer do SAP B1 e com a API do Banco Central no decorrer do desenvolvimento ou durante rotinas de diagnóstico.
 
@@ -97,6 +97,6 @@ python services/test_api.py
 python services/login_logout_sap_test.py
 ```
 
-# 🔒 Segurança e Boas Práticas
+## 🔒 Segurança e Boas Práticas
 
 > **Atenção**: Mantenha o arquivo .env estritamente listado dentro do seu .gitignore. Nunca faça commit de senhas, credenciais do SAP B1 ou dados do servidor de e-mail no repositório.
